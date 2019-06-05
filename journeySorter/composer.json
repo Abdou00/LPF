@@ -1,0 +1,24 @@
+{
+
+  "name": "abdoulaye/tripsort",
+  "description": "This API enable you to sort your unordered boarding cards. Technical assessment.",
+  "license": "UNLICENCED",
+  "authors": [
+    {
+      "name": "Abdoulaye Diarra",
+      "email": "samba4292@gmail.com"
+    }
+  ],
+
+  "require-dev": {
+    "phpunit/phpunit": "4.8.*",
+    "phpdocumentor/phpdocumentor":"2.*"
+  },
+
+  "autoload": {
+    "psr-4" : {
+      "TripSort\\" : "src/TripSort"
+    }
+  }
+
+}

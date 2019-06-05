@@ -1,0 +1,60 @@
+<!-- 
+Objectif : afficher en AJAX avec la méthode POST les informations relatives à des employés issues d'un fichier .json situé sur le serveur.
+-->	
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Employés - AJAX JQ</title>
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Employés</h1>
+
+	<span>Obtenir les infos sur </span>
+	<select id="personne">
+		<option disabled selected>sélectionnez un prénom</option>
+		<option>Daniel</option>
+		<option>Damien</option>
+		<option>Laura</option>
+		<option>Emilie</option>
+	</select>
+
+	<div id="resultat"></div>
+
+	<script>
+		$(function(){
+			$('#personne').change(function(){
+
+				var personne_selectionnee = $('#personne').val(); // val() récupère la valeur sélectionnée dans le sélecteur d'id "personne"
+
+				// 1- envoie de la requête au serveur en méthode POST avec la fonction $.post() : 
+				$.post('employe.php', { personne : personne_selectionnee }, reponse, 'json'); // envoie la requête en méthode POST avec 4 arguments : url du fichier php qui traite la requête, les données envoyées au serveur sous forme d'objet, la fonction qui se déclenche lors de la réception des données, le format de la réponse attendue (cela peut être 'json', 'html', 'text' ou 'xml').
+
+				// 2- fonction qui traite la réponse du serveur :
+				function reponse(retourPHP) {
+					console.log(retourPHP);
+					if (retourPHP.prenom && retourPHP.nom && retourPHP.service) {
+						$('#resultat').html('<h2>L\'employé ' + retourPHP.prenom + ' ' + retourPHP.nom + ' est du service ' + retourPHP.service + '</h2>');
+					}
+				}
+
+			});
+		}); // fin du document ready
+
+		/* Privilégier GET ou POST en AJAX ?
+		GET est plus rapide que POST et peut être utilisé dans la plupart des cas.
+
+		On utilise POST quand :
+			- on ne veut pas appeler des données en cache mais des données nouvelles (par exemple provenant d'une BDD)
+			- pour envoyer des grands volumes de données, POST n'est pas limité
+			- pour envoyer des données provenant de l'utilisateur (exemple login/mdp), POST est plus robuste et sécurisé.
+		*/
+
+	</script>
+</body>
+</html>

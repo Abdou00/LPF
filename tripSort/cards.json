@@ -1,0 +1,30 @@
+{
+    "cardA":{
+        "start": "Madrid", "dest": "New-York",
+        "trainroute": {"trainName": "78A", "trainStatA": "Madrid","trainStatB": "Barcelona", "trainPlat":"2", "trainSeat": "45B"},
+        "busroute": {"busName": "Airport Bus", "busStatA": "Barcelona", "busStatB": "Gerona Airport", "busSeat": "2A"},
+        "flightroute": {"flightName": "SK455", "airportA": "Gerona Airport", "airportB": "Stockholm", "gate":  "22", "flightSeat": "3A"},
+        "flightroute": {"flightName": "SK22", "airportA": "Stockholm", "airportB": "New-York", "gate":  "22", "flightSeat": "7B"}
+    },
+    "cardB":{
+        "start": "Paris", "dest": "New-York",
+        "trainroute": {"trainName": "78A", "trainStatA": "Paris","trainStatB": "Barcelona", "trainPlat":"2", "trainSeat": "45B"},
+        "busroute": {"busName": "Airport Bus", "busStatA": "Barcelona", "busStatB": "Gerona Airport", "busSeat": "None"},
+        "flightroute": {"flightName": "SK455", "airportA": "Gerona Airport", "airportB": "Stockholm", "gate":  "22", "flightSeat": "3A"},
+        "flightroute": {"flightName": "SK22", "airportA": "Stockholm", "airportB": "New-York", "gate":  "33", "flightSeat": "7B"}
+    },
+    "cardC":{
+        "start": "London", "dest": "New-York",
+        "trainroute": {"trainName": "78A", "trainStatA": "London","trainStatB": "Douvres", "trainPlat":"2", "trainSeat": "45B"},
+        "busroute": {"busName": "Eurostar", "busStatA": "Douvres", "busStatB": "Calais", "busSeat": "None"},
+        "flightroute": {"flightName": "AF923", "airportA": "Calais", "airportB": "Dubaï", "gate":  "22", "flightSeat": "1A"},
+        "flightroute": {"flightName": "DB555", "airportA": "Dubaï", "airportB": "New-York", "gate":  "44", "flightSeat": "1B"}
+    },
+    "cardD":{
+        "start": "Berlin", "dest": "New-York",
+        "trainroute": {"trainName": "78A", "trainStatA": "Berlin","trainStatB": "Bruxelles", "trainPlat":"2", "trainSeat": "45B"},
+        "busroute": {"busName": "Airport Bus", "busStatA": "Bruxelles", "busStatB": "Amsterdam Airport", "busSeat": "72A"},
+        "flightroute": {"flightName": "SVK45", "airportA": "Amsterdam Airport", "airportB": "Stockholm", "gate":  "22", "flightSeat": "3A"},
+        "flightroute": {"flightName": "BG122", "airportA": "Stockholm", "airportB": "New-York", "gate":  "55", "flightSeat": "7B"}
+    }
+}

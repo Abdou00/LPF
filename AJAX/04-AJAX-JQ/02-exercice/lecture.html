@@ -1,0 +1,35 @@
+<!-- 
+Exercice : le HTML ci-dessous présente un extrait de texte dont l'id est 105. Quand on clique sur "lire la suite", le serveur envoie le texte complet au navigateur qui l'affiche dans le paragraphe.	
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercice</title>
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<p>Lorem ipsum dolor <a href="#" id="105"> lire la suite... </a></p>
+	
+	<script>
+		$(function(){
+			$('a').click(function(){
+				var idNum = $(this).attr('id'); // en jQuery : this pointe vers l'élément sur lequel on a cliqué précisément (et pas les autres)
+				var idNum = this.id;  // en JS
+
+				$.get('lecture.php', {id : idNum}, reponse, 'json');
+
+				function reponse(reponsePHP) {
+					console.log(reponsePHP);
+					$('p').html(reponsePHP.texte);
+				}
+			});
+		});
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+------------------------------------------------------
+Jour 1/1
+9h15 à 13h15 :
+    - Evaluation pratique PHP 4h
+    - récupération des dossiers zippés avec BDD par message sur cours.wf3.fr
+
+13h30 à 14h30 :
+    - pause déjeuner
+
+14h30 à 15h00 :
+    - Evaluation QCM PHP 30 min
+
+15h00 à 17h00 :
+    - démonstration mise en ligne d'un site avec BDD
+
+
+------------------------------------------------------

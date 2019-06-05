@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+
+<config>
+	<host>localhost</host>
+	<user>root</user>
+	<password></password>
+	<db>entreprise_pole_s</db>
+	<table>employes</table>
+</config>

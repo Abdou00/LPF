@@ -1,0 +1,59 @@
+3 moyens de créer un site web:
+	- from scratch
+	- cms 
+	- framework
+
+-----------------------------------------
+Orienté objet : 
+	Inconvénients:
+		- Techniquement, on ne peut rienf aire de plus avec l'orienté objet qu'avec le procédural.
+		- En général, l'aproche orienté objet est moins intuitive que l'approche procédural.
+		Il est effectivement, plus facile de décomposer un problème séquentiellement ligne par ligne qu'avec une interaction entre les objets. => permet une meilleure evolution vers les autres langages (c++, java, c# ...)
+		- Légère perte de performance, car on passe par des méthodes (get et set) au lieu de travailler directement sur la variable ou la structure.
+
+	Avantages:
+		- Modulariser afin d'avoir un code évolutif. Si on a une série de if/else à changer à droite à gauche; en procdéural il faudrait aller dans tous les fichiers dans lequel on doit faire des modifications alors qu'avec l'OO on aura juste à modifier le module correspondant.
+		- Encourage le travail collaboratif. (pas besoin de ré-ouvrir toutes les pages, l'UML permet de décrire le comprotement de l'application et les intéractions entre objets.)
+		- Masquer la complexité grâce au principe d'encapsulation.
+				=> en effet, c'est plus simple de lire: 
+					panier->affichage() plutot qu'une série de if/else et de boucle
+		- Possibilité de documenter son code.
+		- Ré-utiliser le code, ne pas repartir de zéro, effectuer un code type pouvant etre reprise sur d'autres projets.
+		- Faciliter la maintenance et les mises à jour.
+			=> tout se passe dans la classe en question.
+		- Assouplir le code, factorisation du code : meilleure conceptualisation.
+			=> les pages seront moins chargées.
+		- Permet d'appréhender beaucoup plus simplement d'autres technologies : java, .net, c++, c#...
+		- Plus d'options dans le langage (encapsulation, heritage, exception, interface...)
+
+-----------------------------------------------------------------------------------------------
+Vocabulaire:
+		
+		variable = propriété (= attribut)
+		fonction = methode
+		objet = instance
+
+	Une variable permet de contenir une information.
+	Un array permet de contenir plusieurs informations.
+	Une classe permet de contenir: des propriétés et des méthodes comprotant des traitements.
+	L'objet qui va permettre d'atteindre les éléments contenus dans la classe.
+
+		Class :  (= plan, modele)
+				Une classe est un regroupement d'informations (propriétés, valeurs, méthodes) relatives à un sujet global.
+		Objet : (= application du plan) 
+				Un objet permet d'atteindre/d'accéder aux informations contenues dans la classe.
+
+		Exemple: class Voiture
+						objet = 'objet voiture'
+								propriétés : $couleur, $taille, etc...
+								méthodes: demarrer(), rouler(), etc...
+
+3 bonnes questions à se poser lorsque l'on développe:
+	- Mon projet est-il compréhensible par les autres développeurs ?
+	- Mon projet est-il réutilisable par un autre dév ou devra-t-il réécrire toutes les classe?
+	- Mon projet prévoit-il les évolutions futures?
+
+
+
+
+

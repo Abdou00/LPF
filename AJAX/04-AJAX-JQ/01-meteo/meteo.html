@@ -1,0 +1,44 @@
+<!--
+Objectif : refaire l'échange AJAX réalisé en précédemment javaScript en jQuery.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"><!-- obligatoire pour bien encoder les objets JSON -->
+	<title>Météo - AJAX JQ</title>
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+	<script>
+		document.write(Date.now()); // on affiche le timestamp actuel pour vérifier que la page ne se recharge pas. 
+	</script>
+
+	<h1>Météo</h1>
+	<button>Obtenir la météo</button>
+	<p id="resultat"></p>
+
+	<script>
+		$(function(){
+			$('button').click(function(){
+
+				// 1- envoie de la requête au serveur en méthode GET :
+				$.get('meteo.php', { ville : 'Paris' }, reponse, 'json'); // la fonction $.get() envoie la requête au serveur en méthode GET. 4 arguments à donner à cette fonction : 1° url du fichier PHP qui traite la requête, 2° les données à envoyer ici sous forme d'objet, 3° le nom de la fonction qui s'exécute si la requête est OK et que l'on reçoit une réponse du serveur, 4° le format de la réponse du serveur : 'json' ou 'xml' ou 'html' ou 'text'.
+
+				// 2- fonction qui traite la réponse du serveur :
+				function reponse(reponsePHP) { // le paramètre reponsePHP contient la réponse du serveur directement sous forme d'objet JS (pas besoin de faire un JSON.parse)
+					console.log(reponsePHP);
+
+					if (reponsePHP.meteo && reponsePHP.temperature) {
+						$('#resultat').html(reponsePHP.meteo + ' et il fait ' + reponsePHP.temperature); // nous avons la propriété "meteo" dans l'objet JS reponsePHP, ainsi que la propriété "temperature".
+					}
+
+				}
+
+			});
+		}); // fin du document ready
+	</script>	
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- INFORMATION POUR CE CONNECTER A LA BASE DE DONNEE -->
+<config>
+    <host>localhost</host>
+    <user>samba</user>
+    <password>Abdoulaye@92vlg</password>
+    <db>site_portfolio_medhi</db>
+    <table>competences</table>
+</config>

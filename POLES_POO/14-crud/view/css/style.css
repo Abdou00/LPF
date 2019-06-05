@@ -1,0 +1,13 @@
+table.contacts{
+	width: 100%;
+	border-collapse: collapse; 
+}
+table.contacts thead{
+	background-color: #eee; 
+}
+table.contacts thead th, table.contacts tbody td{
+	padding: 3px;
+	border: 1px solid #000;
+}
+
+

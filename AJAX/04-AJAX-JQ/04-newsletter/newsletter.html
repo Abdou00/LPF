@@ -1,0 +1,48 @@
+<!--
+Objectif : pouvoir s'inscrire à la newsletter sans que la page ne se recharge. Le serveur vérifie que vous n'êtes pas déjà inscrit et renvoie le message adapté en HTML (et non plus en JSON).
+
+La BDD     : newsletter
+La table   : abonne
+Les champs : id_email INT(3) PK AI
+             email VARCHAR(255)
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Newsletter</title>
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Inscription à la newsletter</h1>
+	<form method="post" action="" id="inscription">
+		<input type="text" name="" id="email" placeholder="Saisissez votre email"><span id="resultat"></span>
+		<br>
+		<input type="submit" value="S'inscrire">
+	</form>
+
+	<script>
+		$(function(){
+			$('#inscription').submit(function(e){
+				e.preventDefault(); // pour empêcher l'action du bouton submit qui recharge la page
+
+				var email = $('#email').val(); // récupère la valeur saisie par l'internaute
+
+				// 1- envoie de la requête en POST :
+				$.post('newsletter.php', { inscription : email}, reponse, 'html'); // la propriété "inscription" va correspondre à $_POST['inscription'] côté serveur. Ici nous attendons un retour en "html" et non pas en "JSON".
+
+				// 2- traitement de la réponse du serveur :
+				function reponse(retourHTML) {
+					console.log(retourHTML);
+					
+				}
+
+			});
+		});	// fin du document ready	
+	</script>
+</body>
+</html>

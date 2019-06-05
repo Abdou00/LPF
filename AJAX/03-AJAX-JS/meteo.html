@@ -1,0 +1,52 @@
+<!-- 
+Objectif : afficher en AJAX avec la méthode GET la météo (fictive), ces informations étant envoyées par le serveur web puis affichées sans recharger la page.
+-->	
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"><!-- obligatoire pour bien encoder les objets JSON -->
+	<title>Météo - AJAX JS</title>
+</head>
+<body>
+	<script>
+		document.write(Date.now()); // on affiche le timestamp actuel pour vérifier que la page ne se recharge pas. 
+	</script>
+
+	<h1>Météo</h1>
+	<button>Obtenir la météo</button>
+	<p id="resultat"></p>
+
+	<script>
+		document.querySelector('button').addEventListener('click', ajax);
+
+		function ajax() {
+			// 1- On instancie l'objet XMLHttpRequest :
+			var r = new XMLHttpRequest(); // on crée un objet XMLHttpRequest appelé r qui est destiné à faire des requêtes vers notre serveur (en GET ou en POST). L'utilisation de cet objet se fait en trois étapes : 1° on l'instancie, 2° ouvrir une URL, 3° envoyer la requête vers le serveur.
+
+			// 2- Ouverture de l'url et envoie de la requête :
+			r.open('GET', 'meteo.php?ville=Paris', true);  // open() ouvre une url, 'GET' spécifie la méthode d'envoi, true pour asynchrone, c'est-à-dire n'attend pas la réponse du serveur pour poursuivre l'exécution du script (fortement recommandé). En GET, la valeur "Paris" sera récupérée par le PHP dans $_GET['ville'].
+
+			r.send();  // envoie la requête
+
+			// 3- Traitement de la réponse du serveur :
+			r.onreadystatechange = function() {  // un événement qui se déclenche quand le statut de la requête change
+				console.log(r.readyState);
+				console.log(r.status);
+
+				if(r.readyState == 4 && r.status == 200) {  // readyState donne l'état de l'opération courante : 4 = le serveur a fini son travail et toutes les données sont réceptionnées. Status donne le statut HTTP de la requête : 200 = OK, 404 = page non trouvée, 403 = forbidden
+
+					// on réceptionne la réponse du serveur au format JSON dans r.responseText :
+					console.log(r.responseText); // reponse du serveur en JSON
+					var obj = JSON.parse(r.responseText);  // transforme en objet JS la réponse qui est au format JSON
+					console.log(obj);
+					document.querySelector('#resultat').innerHTML = obj.meteo; // la propriété "meteo" provient de l'indice "meteo" de l'array PHP $retour utilisé côté serveur.
+				}
+			}
+		} // fin de ajax()
+
+
+	</script>	
+
+</body>
+</html>

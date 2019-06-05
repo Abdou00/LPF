@@ -1,0 +1,17 @@
+
+
+--------------------------------------------------------------
+Jour 2/2
+
+- exercice liste_contacts.php
+- correction
+
+-------------------------------------
+
+- exercice ajout_retaurant.php
+- correction
+
+- exercice liste_retaurants.php
+- correction
+
+--------------------------------------------------------------

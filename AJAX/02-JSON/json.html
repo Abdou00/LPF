@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+
+<script>
+//-------------------
+// JSON - définition
+//-------------------
+
+/*
+JSON pour JavaScript Object Notation. C'est une syntaxe pour échanger des données.
+
+JSON est semblable à un objet JS mais présenté sous la forme d'une chaîne de caractères.
+*/
+
+//-----------------
+// A quoi ça sert ?
+//-----------------
+/*
+Quand on échange des données entre client et serveur, celles-ci sont du TEXTE : JSON est donc adapté à cette utilisation car c'est bien une chaîne de caractères.
+
+De plus, on peut convertir un objet JSON en un objet javaScript sans difficulté en utilisant la méthode JSON.parse().
+
+*/
+
+//--------------
+// Exemple :
+//--------------
+// Voici un objet javaScript :
+var myObj = {
+	prenom : 'John',
+	nom    : 'Doe',
+	age    : 31,
+	ville  : 'Londres'
+};
+
+// Puis on le transforme en JSON :
+var myJSON = JSON.stringify(myObj); // transforme un objet JS en JSON comme si on ajoutait des quotes autour de l'objet.
+console.log(typeof(myJSON)); // on voit qu'il s'agit d'un string
+console.log(myJSON);  // on voit l'objet JSON avec des guillemets autour des paires propriétés/valeurs (obligatoires).
+
+// Pour accéder aux valeurs des proprétiés d'un JSON, on le transforme en un objet JS :
+myObj = JSON.parse(myJSON);  // ici myObj redevient un objet javaScript
+console.log(typeof(myObj));  // il s'agit d'un objet
+console.log(myObj);
+
+// Pour accéder à une propriété d'un objet :
+document.write('Le nom est ' + myObj.nom);  // on utilise le point pour accéder à la propriété d'un objet.
+
+</script>
